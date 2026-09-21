@@ -1,0 +1,21 @@
+services:
+
+  mysql:
+    image: mysql:8.4
+    container_name: atividade04-mysql
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: atividade04
+      MYSQL_USER: atividade04
+      MYSQL_PASSWORD: atividade04
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
