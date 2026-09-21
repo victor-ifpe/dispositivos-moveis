@@ -1,4 +1,4 @@
-package com.appmovelweatherforecast
+package com.atividade02
 
 import android.os.Build
 import android.os.Bundle

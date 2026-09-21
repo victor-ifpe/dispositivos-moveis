@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "appmovelweatherforecast.app"
-               BlueprintName = "appmovelweatherforecast"
-               ReferencedContainer = "container:appmovelweatherforecast.xcodeproj">
+               BuildableName = "atividade02.app"
+               BlueprintName = "atividade02"
+               ReferencedContainer = "container:atividade02.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "appmovelweatherforecastTests.xctest"
-               BlueprintName = "appmovelweatherforecastTests"
-               ReferencedContainer = "container:appmovelweatherforecast.xcodeproj">
+               BuildableName = "atividade02Tests.xctest"
+               BlueprintName = "atividade02Tests"
+               ReferencedContainer = "container:atividade02.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appmovelweatherforecast.app"
-            BlueprintName = "appmovelweatherforecast"
-            ReferencedContainer = "container:appmovelweatherforecast.xcodeproj">
+            BuildableName = "atividade02.app"
+            BlueprintName = "atividade02"
+            ReferencedContainer = "container:atividade02.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appmovelweatherforecast.app"
-            BlueprintName = "appmovelweatherforecast"
-            ReferencedContainer = "container:appmovelweatherforecast.xcodeproj">
+            BuildableName = "atividade02.app"
+            BlueprintName = "atividade02"
+            ReferencedContainer = "container:atividade02.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

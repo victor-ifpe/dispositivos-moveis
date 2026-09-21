@@ -1,20 +1,27 @@
 {
-  "name": "app-movel-weather-forecast",
+  "name": "atividade02",
   "version": "1.0.0",
   "main": "index.js",
+  "dependencies": {
+    "@expo/ngrok": "^4.1.0",
+    "@expo/vector-icons": "^15.1.1",
+    "axios": "^1.20.0",
+    "expo": "~57.0.24",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-svg": "15.15.4"
+  },
+  "publishConfig": {
+    "executableFiles": [
+      "./android/gradlew"
+    ]
+  },
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web"
-  },
-  "dependencies": {
-    "axios": "^1.19.0",
-    "expo": "~54.0.36",
-    "expo-status-bar": "~3.0.9",
-    "react": "19.1.0",
-    "react-native": "0.81.5",
-    "react-native-svg": "15.12.1"
   },
   "private": true
 }
