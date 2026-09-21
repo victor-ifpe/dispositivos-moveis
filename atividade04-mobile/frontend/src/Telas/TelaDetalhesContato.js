@@ -1,24 +1,10 @@
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    Alert,
-} from 'react-native';
-
 import { Ionicons } from '@expo/vector-icons';
-
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import api from '../../api';
 
 export default function TelaDetalhesContato({ navigation, route }) {
 
-    const {
-        id,
-        nome,
-        telefone,
-        cidade,
-        anotacao,
-    } = route.params;
+    const { id, nome, telefone, cidade, anotacao } = route.params;
 
     const editarContato = () => {
         navigation.navigate('TelaEdicaoContatos', {
@@ -32,9 +18,7 @@ export default function TelaDetalhesContato({ navigation, route }) {
 
     const excluirContato = () => {
 
-        Alert.alert(
-            'Excluir contato',
-            'Deseja realmente excluir este contato?',
+        Alert.alert('Excluir contato', 'Deseja realmente excluir este contato?',
             [
                 {
                     text: 'Cancelar',
@@ -49,16 +33,11 @@ export default function TelaDetalhesContato({ navigation, route }) {
 
                             await api.delete(`/contatos/${id}`);
 
-                            Alert.alert(
-                                'Sucesso',
-                                'Contato excluído com sucesso!',
+                            Alert.alert('Sucesso', 'Contato excluído com sucesso!',
                                 [
                                     {
                                         text: 'OK',
-                                        onPress: () =>
-                                            navigation.navigate(
-                                                'TelaListaContatos'
-                                            ),
+                                        onPress: () => navigation.navigate('TelaListaContatos'),
                                     },
                                 ]
                             );
@@ -67,10 +46,7 @@ export default function TelaDetalhesContato({ navigation, route }) {
 
                             console.log(error);
 
-                            Alert.alert(
-                                'Erro',
-                                'Não foi possível excluir o contato.'
-                            );
+                            Alert.alert('Erro', 'Não foi possível excluir o contato.');
                         }
                     },
                 },
@@ -83,104 +59,49 @@ export default function TelaDetalhesContato({ navigation, route }) {
 
             <View style={styles.cabecalho}>
 
-                <TouchableOpacity
-                    style={styles.botaoVoltar}
-                    onPress={() =>
-                        navigation.navigate('TelaListaContatos')
-                    }
-                >
-                    <Ionicons
-                        name="arrow-back"
-                        size={30}
-                        color="#fff"
-                    />
+                <TouchableOpacity style={styles.botaoVoltar} onPress={() => navigation.navigate('TelaListaContatos')} >
+                    <Ionicons name="arrow-back" size={30} color="#fff" />
                 </TouchableOpacity>
 
-                <Text style={styles.titulo}>
-                    Detalhes do Contato
-                </Text>
+                <Text style={styles.titulo}> Detalhes do Contato </Text>
 
             </View>
 
             <View style={styles.conteudo}>
 
-                <Ionicons
-                    name="person-circle-outline"
-                    size={100}
-                    color="#007AFF"
-                    style={styles.icone}
-                />
+                <Ionicons name="person-circle-outline" size={100} color="#007AFF" style={styles.icone} />
 
-                <Text style={styles.nome}>
-                    {nome}
-                </Text>
+                {/* Nome */}
+                <Text style={styles.nome}> {nome} </Text>
 
+                {/* Telefone */}
                 <View style={styles.informacao}>
-
-                    <Text style={styles.label}>
-                        Telefone
-                    </Text>
-
-                    <Text style={styles.valor}>
-                        {telefone}
-                    </Text>
-
+                    <Text style={styles.label}> Telefone </Text>
+                    <Text style={styles.valor}> {telefone} </Text>
                 </View>
 
+                {/* Cidade */}
                 <View style={styles.informacao}>
-
-                    <Text style={styles.label}>
-                        Cidade
-                    </Text>
-
-                    <Text style={styles.valor}>
-                        {cidade}
-                    </Text>
-
+                    <Text style={styles.label}> Cidade </Text>
+                    <Text style={styles.valor}> {cidade} </Text>
                 </View>
 
+                {/* Anotação */}
                 <View style={styles.informacao}>
-
-                    <Text style={styles.label}>
-                        Anotação
-                    </Text>
-
-                    <Text style={styles.valor}>
-                        {anotacao || 'Nenhuma anotação'}
-                    </Text>
-
+                    <Text style={styles.label}> Anotação </Text>
+                    <Text style={styles.valor}> {anotacao || 'Nenhuma anotação'} </Text>
                 </View>
 
-                <TouchableOpacity
-                    style={styles.botaoEditar}
-                    onPress={editarContato}
-                >
-                    <Ionicons
-                        name="create-outline"
-                        size={22}
-                        color="#fff"
-                    />
-
-                    <Text style={styles.textoBotao}>
-                        Editar
-                    </Text>
-
+                {/* Botão Editar */}
+                <TouchableOpacity style={styles.botaoEditar} onPress={editarContato} >
+                    <Ionicons name="create-outline" size={22} color="#fff" />
+                    <Text style={styles.textoBotao}> Editar </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={styles.botaoExcluir}
-                    onPress={excluirContato}
-                >
-                    <Ionicons
-                        name="trash-outline"
-                        size={22}
-                        color="#fff"
-                    />
-
-                    <Text style={styles.textoBotao}>
-                        Excluir
-                    </Text>
-
+                {/* Botão Salvar */}
+                <TouchableOpacity style={styles.botaoExcluir} onPress={excluirContato} >
+                    <Ionicons name="trash-outline" size={22} color="#fff" />
+                    <Text style={styles.textoBotao}> Excluir </Text>
                 </TouchableOpacity>
 
             </View>

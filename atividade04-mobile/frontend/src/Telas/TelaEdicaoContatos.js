@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import api from '../../api';
 
 export default function TelaEdicaoContatos({ navigation, route }) {
@@ -38,9 +37,7 @@ export default function TelaEdicaoContatos({ navigation, route }) {
         anotacao,
       });
 
-      Alert.alert(
-        'Sucesso',
-        'Contato alterado com sucesso!',
+      Alert.alert('Sucesso', 'Contato alterado com sucesso!',
         [
           {
             text: 'OK',
@@ -66,22 +63,11 @@ export default function TelaEdicaoContatos({ navigation, route }) {
 
       <View style={styles.cabecalho}>
 
-        <TouchableOpacity
-          style={styles.botaoVoltar}
-          onPress={() =>
-            navigation.navigate('TelaListaContatos')
-          }
-        >
-          <Ionicons
-            name="arrow-back"
-            size={30}
-            color="#fff"
-          />
+        <TouchableOpacity style={styles.botaoVoltar} onPress={() => navigation.navigate('TelaListaContatos')} >
+          <Ionicons name="arrow-back" size={30} color="#fff" />
         </TouchableOpacity>
 
-        <Text style={styles.titulo}>
-          Editar Contato
-        </Text>
+        <Text style={styles.titulo}> Editar Contato </Text>
 
         <View style={styles.espaco} />
 
@@ -89,10 +75,8 @@ export default function TelaEdicaoContatos({ navigation, route }) {
 
       <View style={styles.formulario}>
 
-        <Text style={styles.label}>
-          Nome
-        </Text>
-
+        {/* Nome */}
+        <Text style={styles.label}> Nome </Text>
         <TextInput
           style={styles.input}
           value={nome}
@@ -100,10 +84,8 @@ export default function TelaEdicaoContatos({ navigation, route }) {
           placeholder="Digite o nome"
         />
 
-        <Text style={styles.label}>
-          Telefone
-        </Text>
-
+        {/* Telefone */}
+        <Text style={styles.label}> Telefone </Text>
         <TextInput
           style={styles.input}
           value={telefone}
@@ -112,29 +94,29 @@ export default function TelaEdicaoContatos({ navigation, route }) {
           keyboardType="phone-pad"
         />
 
-        <Text style={styles.label}>
-          Cidade
-        </Text>
-
-        <TextInput style={styles.input}
+        {/* Cidade */}
+        <Text style={styles.label}> Cidade </Text>
+        <TextInput
+          style={styles.input}
           value={cidade}
           onChangeText={setCidade}
           placeholder="Digite a cidade"
         />
 
-        <Text style={styles.label}>
-          Anotação
-        </Text>
+        {/* Anotação */}
+        <Text style={styles.label}> Anotação </Text>
 
-        <TextInput style={[styles.input, styles.anotacao]} value={anotacao} onChangeText={setAnotacao} placeholder="Digite uma anotação" multiline />
+        <TextInput
+          style={[styles.input, styles.anotacao]}
+          value={anotacao}
+          onChangeText={setAnotacao}
+          placeholder="Digite uma anotação"
+          multiline
+        />
 
-        <TouchableOpacity
-          style={styles.botao}
-          onPress={salvarAlteracoes}
-        >
-          <Text style={styles.textoBotao}>
-            Salvar alterações
-          </Text>
+        {/* Botão Salvar */}
+        <TouchableOpacity style={styles.botao} onPress={salvarAlteracoes} >
+          <Text style={styles.textoBotao}> Salvar alterações </Text>
         </TouchableOpacity>
 
       </View>

@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../firebase';
 
 export default function TelaCadastroUsuario({ navigation }) {
@@ -13,59 +13,41 @@ export default function TelaCadastroUsuario({ navigation }) {
     const [senha, setSenha] = useState('');
 
     const cadastrarUsuario = async () => {
+
         if (!nome.trim() || !email.trim() || !telefone.trim() || !senha.trim()) {
-            Alert.alert(
-                'Atenção',
-                'Preencha todos os campos.'
+            Alert.alert('Atenção', 'Preencha todos os campos.'
             );
             return;
         }
         if (senha.length < 6) {
-            Alert.alert(
-                'Atenção',
-                'A senha deve ter pelo menos 6 caracteres.'
-            );
+            Alert.alert('Atenção', 'A senha deve ter pelo menos 6 caracteres.');
             return;
         }
+
         try {
             await createUserWithEmailAndPassword(
                 auth,
                 email.trim(),
                 senha
             );
-            Alert.alert(
-                'Sucesso',
-                'Usuário cadastrado com sucesso!',
-                [
-                    {
-                        text: 'OK',
-                        onPress: () =>
-                            navigation.navigate('TelaLogin'),
-                    },
-                ]
+            Alert.alert('Sucesso', 'Usuário cadastrado com sucesso!',
+                [{
+                    text: 'OK', onPress: () => navigation.navigate('TelaLogin'),
+                },]
             );
+
         } catch (error) {
             console.log(error);
+
             if (error.code === 'auth/email-already-in-use') {
-                Alert.alert(
-                    'Erro',
-                    'Este e-mail já está cadastrado.'
-                );
+                Alert.alert('Erro', 'Este e-mail já está cadastrado.');
             } else if (error.code === 'auth/invalid-email') {
-                Alert.alert(
-                    'Erro',
-                    'Digite um e-mail válido.'
-                );
+                Alert.alert('Erro', 'Digite um e-mail válido.');
             } else if (error.code === 'auth/weak-password') {
-                Alert.alert(
-                    'Erro',
-                    'A senha deve ter pelo menos 6 caracteres.'
+                Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres.'
                 );
             } else {
-                Alert.alert(
-                    'Erro',
-                    'Não foi possível cadastrar o usuário.'
-                );
+                Alert.alert('Erro', 'Não foi possível cadastrar o usuário.');
             }
         }
     };
@@ -76,22 +58,18 @@ export default function TelaCadastroUsuario({ navigation }) {
             <View style={styles.cabecalho}>
 
                 <TouchableOpacity style={styles.botaoVoltar}
-                    onPress={() => navigation.navigate('TelaLogin')}  >
+                    onPress={() => navigation.navigate('TelaLogin')} >
                     <Ionicons name="arrow-back" size={30} color="#fff" />
                 </TouchableOpacity>
 
-                <Text style={styles.tituloPrincipal}>
-                    Cadastro de Usuário
-                </Text>
+                <Text style={styles.tituloPrincipal}> Cadastro de Usuário </Text>
 
             </View>
 
             <View style={styles.caixaLogin}>
 
-                <Text style={styles.titulo}>
-                    Nome
-                </Text>
-
+                {/* Nome */}
+                <Text style={styles.titulo}> Nome </Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Digite seu nome..."
@@ -99,10 +77,8 @@ export default function TelaCadastroUsuario({ navigation }) {
                     onChangeText={setNome}
                 />
 
-                <Text style={styles.titulo}>
-                    Email
-                </Text>
-
+                {/* Email */}
+                <Text style={styles.titulo}> Email </Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Digite seu email..."
@@ -112,10 +88,8 @@ export default function TelaCadastroUsuario({ navigation }) {
                     autoCapitalize="none"
                 />
 
-                <Text style={styles.titulo}>
-                    Telefone
-                </Text>
-
+                {/* Email */}
+                <Text style={styles.titulo}> Telefone </Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Digite seu telefone..."
@@ -124,10 +98,8 @@ export default function TelaCadastroUsuario({ navigation }) {
                     keyboardType="phone-pad"
                 />
 
-                <Text style={styles.titulo}>
-                    Senha
-                </Text>
-
+                {/* Senha */}
+                <Text style={styles.titulo}> Senha </Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Digite sua senha..."
@@ -136,10 +108,9 @@ export default function TelaCadastroUsuario({ navigation }) {
                     secureTextEntry
                 />
 
-                <TouchableOpacity style={styles.botao} onPress={cadastrarUsuario}  >
-                    <Text style={styles.textoBotao}>
-                        Salvar
-                    </Text>
+                {/* Botão Salvar */}
+                <TouchableOpacity style={styles.botao} onPress={cadastrarUsuario} >
+                    <Text style={styles.textoBotao}> Salvar </Text>
                 </TouchableOpacity>
 
             </View>

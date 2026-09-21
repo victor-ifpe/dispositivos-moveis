@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpe.backend.FirebaseTokenService;
-
 @RestController
 @RequestMapping("/contatos")
 @CrossOrigin(origins = "*")
@@ -40,8 +38,7 @@ public class ContatoController {
         String usuarioUid = obterUid(authorization);
 
         return ResponseEntity.ok(
-                service.listar(usuarioUid)
-        );
+                service.listar(usuarioUid));
     }
 
     @PostMapping
@@ -52,8 +49,7 @@ public class ContatoController {
         String usuarioUid = obterUid(authorization);
 
         return ResponseEntity.ok(
-                service.cadastrar(dto, usuarioUid)
-        );
+                service.cadastrar(dto, usuarioUid));
     }
 
     @PutMapping("/{id}")
@@ -65,8 +61,7 @@ public class ContatoController {
         String usuarioUid = obterUid(authorization);
 
         return ResponseEntity.ok(
-                service.alterar(id, dto, usuarioUid)
-        );
+                service.alterar(id, dto, usuarioUid));
     }
 
     @DeleteMapping("/{id}")

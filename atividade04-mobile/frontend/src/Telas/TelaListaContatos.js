@@ -1,18 +1,7 @@
-import { useCallback, useState } from 'react';
-
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    Alert,
-    FlatList,
-} from 'react-native';
-
 import { Ionicons } from '@expo/vector-icons';
-
 import { useFocusEffect } from '@react-navigation/native';
-
+import { useCallback, useState } from 'react';
+import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import api from '../../api';
 
 export default function TelaListaContatos({ navigation }) {
@@ -28,10 +17,7 @@ export default function TelaListaContatos({ navigation }) {
         } catch (error) {
             console.log(error);
 
-            Alert.alert(
-                'Erro',
-                'Não foi possível carregar os contatos.'
-            );
+            Alert.alert('Erro', 'Não foi possível carregar os contatos.');
         }
     };
 
@@ -57,26 +43,12 @@ export default function TelaListaContatos({ navigation }) {
             >
                 <View style={styles.contato}>
 
-                    <Ionicons
-                        name="person-circle-outline"
-                        size={50}
-                        color="#007AFF"
-                    />
+                    <Ionicons name="person-circle-outline" size={50} color="#007AFF" />
 
                     <View style={styles.informacoes}>
-
-                        <Text style={styles.nome}>
-                            {item.nome}
-                        </Text>
-
-                        <Text style={styles.telefone}>
-                            {item.telefone}
-                        </Text>
-
-                        <Text style={styles.cidade}>
-                            {item.cidade}
-                        </Text>
-
+                        <Text style={styles.nome}>  {item.nome}  </Text>
+                        <Text style={styles.telefone}>  {item.telefone} </Text>
+                        <Text style={styles.cidade}> {item.cidade} </Text>
                     </View>
 
                 </View>
@@ -94,9 +66,7 @@ export default function TelaListaContatos({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.botaoVoltar}
-                    onPress={() =>
-                        navigation.navigate('TelaLogin')
-                    }
+                    onPress={() =>  navigation.navigate('TelaLogin')   }
                 >
                     <Ionicons
                         name="arrow-back"

@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 import { sendPasswordResetEmail } from 'firebase/auth';
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../firebase';
 
 export default function TelaEsqueceuSenha({ navigation }) {
@@ -16,10 +16,7 @@ export default function TelaEsqueceuSenha({ navigation }) {
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      Alert.alert(
-        'Sucesso',
-        'Um e-mail para redefinir sua senha foi enviado.'
-      );
+      Alert.alert('Sucesso', 'Um e-mail para redefinir sua senha foi enviado.');
       navigation.navigate('TelaLogin');
     } catch (error) {
       if (error.code === 'auth/invalid-email') {
@@ -50,9 +47,7 @@ export default function TelaEsqueceuSenha({ navigation }) {
           <Ionicons name="arrow-back" size={30} color="#fff" />
         </TouchableOpacity>
 
-        <Text style={styles.tituloPrincipal}>
-          Recuperar senha
-        </Text>
+        <Text style={styles.tituloPrincipal}>  Recuperar senha </Text>
 
       </View>
 
@@ -60,10 +55,8 @@ export default function TelaEsqueceuSenha({ navigation }) {
 
         <Ionicons name="lock-open-outline" size={100} color="#333333" style={styles.icone} />
 
-        <Text style={styles.titulo}>
-          Digite seu e-mail
-        </Text>
-
+        {/* Email */}
+        <Text style={styles.titulo}> Digite seu e-mail </Text>
         <TextInput
           style={styles.input}
           placeholder="Digite seu e-mail..."
@@ -73,13 +66,9 @@ export default function TelaEsqueceuSenha({ navigation }) {
           autoCapitalize="none"
         />
 
-        <TouchableOpacity
-          style={styles.botao}
-          onPress={enviarEmail}
-        >
-          <Text style={styles.textoBotao}>
-            Enviar
-          </Text>
+        {/* Botão Enviar */}
+        <TouchableOpacity style={styles.botao} onPress={enviarEmail} >
+          <Text style={styles.textoBotao}> Enviar </Text>
         </TouchableOpacity>
 
       </View>

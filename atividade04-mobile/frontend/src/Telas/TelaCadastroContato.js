@@ -1,7 +1,7 @@
+import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import api from '../../api';
 
 export default function TelaCadastroContato({ navigation }) {
@@ -41,28 +41,22 @@ export default function TelaCadastroContato({ navigation }) {
           <Ionicons name="arrow-back" size={30} color="#fff" />
         </TouchableOpacity>
 
-        <Text style={styles.tituloPrincipal}>
-          Cadastro de Contato
-        </Text>
+        <Text style={styles.tituloPrincipal}> Cadastro de Contato </Text>
 
       </View>
 
       <View style={styles.caixaLogin}>
 
-        <Text style={styles.titulo}>
-          Nome
-        </Text>
-
+        {/* Nome */}
+        <Text style={styles.titulo}> Nome </Text>
         <TextInput style={styles.input}
           placeholder="Digite o nome..."
           value={nome}
           onChangeText={setNome}
         />
 
-        <Text style={styles.titulo}>
-          Telefone
-        </Text>
-
+        {/* Telefone */}
+        <Text style={styles.titulo}> Telefone </Text>
         <TextInput style={styles.input}
           placeholder="Digite o telefone..."
           value={telefone}
@@ -70,34 +64,29 @@ export default function TelaCadastroContato({ navigation }) {
           keyboardType="phone-pad"
         />
 
-        <Text style={styles.titulo}>
-          Cidade
-        </Text>
-
+        {/* Cidade */}
+        <Text style={styles.titulo}> Cidade </Text>
         <TextInput style={styles.input}
           placeholder="Digite a cidade..."
           value={cidade}
           onChangeText={setCidade}
         />
 
-        <Text style={styles.titulo}>
-          Anotação
-        </Text>
-
+        {/* Anotação */}
+        <Text style={styles.titulo}> Anotação </Text>
         <TextInput style={styles.input}
           placeholder="Digite uma anotação..."
           value={anotacao}
           onChangeText={setAnotacao}
         />
 
+        {/* Botão Salvar */}
         <TouchableOpacity style={styles.botao} onPress={salvarContato}>
-          <Text style={styles.textoBotao}>
-            Salvar
-          </Text>
+          <Text style={styles.textoBotao}> Salvar </Text>
         </TouchableOpacity>
 
       </View>
-      
+
       <StatusBar style="auto" />
     </View>
   );
