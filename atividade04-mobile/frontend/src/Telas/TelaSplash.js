@@ -17,19 +17,11 @@ export default function TelaSplash({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <Ionicons
-                name="people-circle-outline"
-                size={120}
-                color="#007AFF"
-            />
+            <Ionicons name="people-circle-outline" size={120} color="#007AFF" />
 
-            <Text style={styles.titulo}>
-                Meus Contatos
-            </Text>
+            <Text style={styles.titulo}> Meus Contatos </Text>
 
-            <Text style={styles.subtitulo}>
-                Cadastro e gerenciamento de contatos
-            </Text>
+            <Text style={styles.subtitulo}> Cadastro e gerenciamento de contatos </Text>
 
         </View>
     );

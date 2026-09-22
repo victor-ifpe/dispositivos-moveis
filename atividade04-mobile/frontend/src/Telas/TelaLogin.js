@@ -1,17 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
-
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 
@@ -57,15 +47,10 @@ export default function TelaLogin({ navigation }) {
 
       <View style={styles.caixaLogin}>
 
-        <Ionicons
-          name="person-circle-outline"
-          size={150}
-          color="#333333"
-          style={styles.icone}
-        />
+        <Ionicons name="person-circle-outline" size={150} color="#333333" style={styles.icone} />
 
-        <Text style={styles.titulo}>Login</Text>
-
+        {/* Login */}
+        <Text style={styles.titulo}> Login</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite seu e-mail..."
@@ -75,8 +60,8 @@ export default function TelaLogin({ navigation }) {
           autoCapitalize="none"
         />
 
-        <Text style={styles.titulo}>Senha</Text>
-
+        {/* Senha */}
+        <Text style={styles.titulo}> Senha </Text>
         <TextInput
           style={styles.input}
           placeholder="Digite sua senha..."
@@ -85,34 +70,25 @@ export default function TelaLogin({ navigation }) {
           secureTextEntry
         />
 
+        {/* Botão Login */}
         <TouchableOpacity
           style={styles.botao}
           onPress={fazerLogin}
         >
-          <Text style={styles.textoBotao}>
-            Login
-          </Text>
+          <Text style={styles.textoBotao}> Login </Text>
         </TouchableOpacity>
 
+        {/* Botão Cadastro */}
         <TouchableOpacity
           style={styles.botaoCadastro}
-          onPress={() =>
-            navigation.navigate('TelaCadastroUsuario')
-          }
+          onPress={() => navigation.navigate('TelaCadastroUsuario')}
         >
-          <Text style={styles.textoBotao}>
-            Cadastre-se
-          </Text>
+          <Text style={styles.textoBotao}> Cadastre-se </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('TelaEsqueceuSenha')
-          }
-        >
-          <Text style={styles.textoSenha}>
-            esqueceu a senha?
-          </Text>
+        {/* Esqueceu a senha? */}
+        <TouchableOpacity onPress={() => navigation.navigate('TelaEsqueceuSenha')} >
+          <Text style={styles.textoSenha}> esqueceu a senha? </Text>
         </TouchableOpacity>
 
       </View>

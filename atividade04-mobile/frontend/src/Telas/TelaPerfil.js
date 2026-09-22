@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 
@@ -9,9 +8,7 @@ export default function TelaPerfil({ navigation }) {
     const usuario = auth.currentUser;
 
     const fazerLogout = () => {
-        Alert.alert(
-            'Sair',
-            'Deseja realmente sair da conta?',
+        Alert.alert('Sair', 'Deseja realmente sair da conta?',
             [
                 {
                     text: 'Cancelar',
@@ -29,10 +26,7 @@ export default function TelaPerfil({ navigation }) {
                         } catch (error) {
                             console.log(error);
 
-                            Alert.alert(
-                                'Erro',
-                                'Não foi possível sair da conta.'
-                            );
+                            Alert.alert('Erro', 'Não foi possível sair da conta.');
                         }
                     },
                 },
@@ -47,52 +41,25 @@ export default function TelaPerfil({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.botaoVoltar}
-                    onPress={() =>
-                        navigation.navigate('TelaListaContatos')
-                    }
+                    onPress={() => navigation.navigate('TelaListaContatos')}
                 >
-                    <Ionicons
-                        name="arrow-back"
-                        size={30}
-                        color="#fff"
-                    />
+                    <Ionicons name="arrow-back" size={30} color="#fff" />
                 </TouchableOpacity>
 
-                <Text style={styles.titulo}>
-                    Meu Perfil
-                </Text>
+                <Text style={styles.titulo}> Meu Perfil </Text>
 
             </View>
 
             <View style={styles.conteudo}>
 
-                <Ionicons
-                    name="person-circle-outline"
-                    size={120}
-                    color="#007AFF"
-                />
+                <Ionicons name="person-circle-outline" size={120} color="#007AFF" />
 
-                <Text style={styles.nome}>
-                    Usuário
-                </Text>
+                <Text style={styles.nome}>  Usuário </Text>
+                <Text style={styles.email}> {usuario?.email} </Text>
 
-                <Text style={styles.email}>
-                    {usuario?.email}
-                </Text>
-
-                <TouchableOpacity
-                    style={styles.botaoSair}
-                    onPress={fazerLogout}
-                >
-                    <Ionicons
-                        name="log-out-outline"
-                        size={24}
-                        color="#fff"
-                    />
-
-                    <Text style={styles.textoBotao}>
-                        Sair da conta
-                    </Text>
+                <TouchableOpacity style={styles.botaoSair} onPress={fazerLogout} >
+                    <Ionicons name="log-out-outline" size={24} color="#fff" />
+                    <Text style={styles.textoBotao}> Sair da conta </Text>
                 </TouchableOpacity>
 
             </View>

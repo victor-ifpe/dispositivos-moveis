@@ -66,45 +66,22 @@ export default function TelaListaContatos({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.botaoVoltar}
-                    onPress={() =>  navigation.navigate('TelaLogin')   }
+                    onPress={() => navigation.navigate('TelaLogin')}
                 >
-                    <Ionicons
-                        name="arrow-back"
-                        size={30}
-                        color="#fff"
-                    />
+                    <Ionicons name="arrow-back" size={30} color="#fff" />
                 </TouchableOpacity>
 
-                <Text style={styles.tituloPrincipal}>
-                    Lista de Contatos
-                </Text>
+                <Text style={styles.tituloPrincipal}> Lista de Contatos </Text>
 
+                {/* Botões da direita */}
                 <View style={styles.botoesDireita}>
 
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.navigate(
-                                'TelaCadastroContato'
-                            )
-                        }
-                    >
-                        <Ionicons
-                            name="add-circle-outline"
-                            size={35}
-                            color="#fff"
-                        />
+                    <TouchableOpacity onPress={() => navigation.navigate('TelaCadastroContato')} >
+                        <Ionicons name="add-circle-outline" size={35} color="#fff" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.navigate('TelaPerfil')
-                        }
-                    >
-                        <Ionicons
-                            name="person-circle-outline"
-                            size={35}
-                            color="#fff"
-                        />
+                    <TouchableOpacity onPress={() => navigation.navigate('TelaPerfil')} >
+                        <Ionicons name="person-circle-outline" size={35} color="#fff" />
                     </TouchableOpacity>
 
                 </View>
@@ -118,9 +95,7 @@ export default function TelaListaContatos({ navigation }) {
                 }
                 renderItem={renderContato}
                 ListEmptyComponent={
-                    <Text style={styles.semContatos}>
-                        Nenhum contato cadastrado.
-                    </Text>
+                    <Text style={styles.semContatos}> Nenhum contato cadastrado. </Text>
                 }
             />
 
